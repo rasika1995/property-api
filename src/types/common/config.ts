@@ -9,15 +9,4 @@ export interface Config {
     port: number;
     database: string;
   };
-  jwt: {
-    secretKey: string;
-  };
-  aws: {
-    ses: {
-      verifedEmailOrDomain: string;
-      accessKeyId: string;
-      secretAccessKey: string;
-      region: string;
-    };
-  };
 }

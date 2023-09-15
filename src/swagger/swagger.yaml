@@ -1,0 +1,30 @@
+openapi: 3.0.0
+info:
+  title: Assets API
+  version: 1.0.0
+paths:
+  /:
+    get:
+      summary: Welcome
+      responses:
+        '200':
+          description: Welcome to Assests API!
+  /upload-property-csv:
+    post:
+      summary: Upload Property CSV
+      requestBody:
+        content:
+          multipart/form-data:
+            schema:
+              type: object
+              properties:
+                file:
+                  type: string
+                  format: binary
+      responses:
+        '200':
+          description: CSV data inserted into the database.
+        '400':
+          description: No file uploaded.
+        '500':
+          description: Error occurred while processing the CSV file.

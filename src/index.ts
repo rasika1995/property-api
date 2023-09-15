@@ -3,6 +3,8 @@ import express from "express";
 import bodyParser from "body-parser";
 import pool from "./core/dbs";
 import router from "./routes/index";
+import swaggerUi from "swagger-ui-express";
+import swaggerSpec from "./swagger/swagger";
 
 const app = express();
 
@@ -10,6 +12,9 @@ const app = express();
 app.use(bodyParser.json());
 
 app.use(router);
+
+// Serve Swagger UI
+app.use("/api-docs", swaggerUi.serve, swaggerUi.setup(swaggerSpec));
 
 // Check database connection
 pool.connect((err) => {
